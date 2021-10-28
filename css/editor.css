@@ -18,7 +18,7 @@
 }
 
 .control-container input {
-    height: 30px;
+    height: 2rem;
 }
 
 .control-container button {
@@ -26,8 +26,8 @@
 }
 
 .font-btns > *  {
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     padding: 0;
     border: none;
     margin-left: 0;
@@ -38,10 +38,15 @@
 
 .location-range {
     cursor: grab;
+
 }
 
 .switch-btn {
-    height: 30px;
+    height: 2rem;
+}
+
+.share-btn {
+    height: 2rem;
 }
 
 /* .share-modal {
@@ -80,6 +85,9 @@
 }
 
 @media (max-width: 600px) {
+    html {
+        font-size: 25px;
+    }
     .canvas-page {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;

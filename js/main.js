@@ -18,5 +18,16 @@ function openGallery() {
     elGallery.hidden = false;
 }
 
+function closeNav() {
+    console.log('close');
+    var elNav = document.querySelector('.nav-container');
+    elNav.hidden = true;
+} 
+
+function openNav() {
+    var elNav = document.querySelector('.main-nav');
+    elNav.classList.toggle('.open-modal')
+}
+
 
 

@@ -59,9 +59,12 @@ button {
     display: flex;
 }
 
-.main-nav li a {
+.main-nav li a  {
     padding: 40px;
     color: white;
+}
+.main-nav li a:hover {
+    color: rgb(124, 109, 81);
 }
 
 /* footer */
@@ -72,5 +75,70 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 550px) {
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        height: 100vh;
+        background-color: orange;
+        padding: 50px;
+        margin: 0;
+        box-shadow: rgb(241, 188, 153) 0px 0px 3px 2px;
+        transform: translate(0);
+    }
+
+    .main-nav li {
+        padding: 50px 20px;
+        color: white;
+        font-size: 1.7rem;
+    }
+
+    .main-nav li a {
+        padding: 40px 0;
+        color: white;
+    }
+
+    .close-modal-btn {
+        background-color: orange;
+        color: white;
+        border: 2px solid rgb(253, 198, 126);
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .open-modal-btn {
+        position: fixed;
+        background-color: orange;
+        color: white;
+        border: 2px solid rgb(253, 198, 126);
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+        right: 0;
+        margin-right: 20px;
+    }
+
+    .open-modal {
+        transform: translate(100%);
+    }
+
+}
+
+@media (min-width:560px) {
+    .close-modal-btn {
+            display: none;
+    }
+    
+    .open-modal-btn {
+            display: none;
+    }
 }
 
