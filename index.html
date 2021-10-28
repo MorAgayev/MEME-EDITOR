@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <title>MEME2</title>
+</head>
+
+<body onload="onInit()">
+    <div class="top-container">
+        <div class="logo">MEME</div>
+        <nav class="nav-container">
+            <ul class="main-nav">
+                <li><a class="gallery-btn" href="#">Gallery</a></li>
+                <li><a href="#">Memes</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="canvas" hidden>
+        <div class="canvas-page">
+            <div class="canvas-container">
+                <canvas class="my-canvas"></canvas>
+            </div>
+            <div class="control-container">
+                <h2>Edit Text Line</h2>
+                <input class="txt-input" type="text" placeholder="Enter some text" oninput="onChangeTxt(this.value)">
+                <div class="font-btns">
+                    <button onclick="onChangeFontSize('increase')"
+                        style="background-image: url(ICONS/a-plus.png);"></button>
+                    <button onclick="onChangeFontSize('decrease')"
+                        style="background-image: url(ICONS/a-minus.png);"></button>
+                </div>
+                <input type="color" name="text-color" oninput="onChangeTxtColor(this.value)">
+                <input type="range" class="location-range" oninput="onChangeLocation(this.value)" min="50" max="400">
+                <!-- <button onclick="onChangeLocation('up')">Up</button>
+                <button onclick="onChangeLocation('down')">Down</button> -->
+                <button onclick="onSwitchLines()" class="switch-btn">Switch Lines</button>
+                <button class="share-btn" type="file" onclick="uploadImg()">Share</button>
+                    <p class="user-msg"></p>
+                    <div class="share-container"></div>
+            </div>
+            <!-- <div class="share-container" hidden>
+                <div class="share-modal">
+                    <h3>Share your MAMA on Facebook</h3>
+                    <p class="user-msg"></p>
+                    <div class="share-container"></div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="gallery-container"></div>
+    </div>
+    <footer>
+        <div class="logo">MEME</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/controller/gallery-controller.js"></script>
+    <script src="js/controller/editor-controller.js"></script>
+    <script src="js/service/editor-service.js"></script>
+    <script src="js/service/gallery-service.js"></script>
+    <script src="js/uploud.js"></script>
+</body>
+
+</html>

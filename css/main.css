@@ -1,0 +1,75 @@
+*{box-sizing: border-box;}
+
+
+/* TYPOGRAPHY */
+@font-face {
+    font-family: Teko-Medium;
+    src: url(/fonts/Teko-Medium.ttf);
+}
+@font-face {
+    font-family: Teko-Bold;
+    src: url(/fonts/Teko-Bold.ttf);
+}
+@font-face {
+    font-family: Teko-Regular;
+    src: url(/fonts/Teko-Regular.ttf);
+}
+
+/* BASIC */
+body {
+    margin: 0;
+}
+
+html {
+    font-family: Teko-Regular;
+    font-size: 20px;
+    letter-spacing: 0.063rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* top container */
+.top-container {
+    background-color: orange;
+    margin-bottom: 50px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: Teko-Bold;
+    padding-left: 20px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.main-nav {
+    display: flex;
+}
+
+.main-nav li a {
+    padding: 40px;
+    color: white;
+}
+
+/* footer */
+
+footer {
+    background-color: orange;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
