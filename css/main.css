@@ -4,15 +4,15 @@
 /* TYPOGRAPHY */
 @font-face {
     font-family: Teko-Medium;
-    src: url(/fonts/Teko-Medium.ttf);
+    src: url(../fonts/Teko-Medium.ttf);
 }
 @font-face {
     font-family: Teko-Bold;
-    src: url(/fonts/Teko-Bold.ttf);
+    src: url(../fonts/Teko-Bold.ttf);
 }
 @font-face {
     font-family: Teko-Regular;
-    src: url(/fonts/Teko-Regular.ttf);
+    src: url(../fonts/Teko-Regular.ttf);
 }
 
 /* BASIC */
@@ -73,3 +73,4 @@ footer {
     justify-content: center;
     align-items: center;
 }
+

@@ -83,7 +83,7 @@
     .canvas-page {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        height: 800px;
+        max-height: 900px;
     }
     .canvas-page {
         max-width: 500px;
@@ -106,6 +106,7 @@
 @media (min-width: 740px) {
     .canvas-page {
         max-width: 700px;
+        max-height: none;
         /* max-height: none; */
         /* grid-template-columns: 2fr 1fr;
         grid-template-rows: 1fr; */
