@@ -25,8 +25,8 @@ function closeNav() {
 } 
 
 function openNav() {
-    var elNav = document.querySelector('.main-nav');
-    elNav.classList.toggle('.open-modal')
+    var elNav = document.querySelector('.nav-container');
+    elNav.hidden = false;
 }
 
 
