@@ -40,8 +40,18 @@
                 </div>
                 <input type="color" name="text-color" oninput="onChangeTxtColor(this.value)">
                 <input type="range" class="location-range" oninput="onChangeLocation(this.value)" min="50" max="400">
-                <!-- <button onclick="onChangeLocation('up')">Up</button>
-                <button onclick="onChangeLocation('down')">Down</button> -->
+                <select onchange="onChangeFont(this.value)">
+                    <option value="IMPACT">IMPACT</option>
+                    <option value="MONOSPACE">MONOSPACE</option>
+                    <option value="VERDANA">VERDANA</option>
+                </select>
+                <div class="align-btns">
+                    <button onclick="onChangeAlign('center')">C</button>
+                    <button onclick="onChangeAlign('left')">L</button>
+                    <button onclick="onChangeAlign('right')">R</button>
+                </div>
+                <button onclick="onAddLine()">Add line</button>
+                <button onclick="onDeleteLine()">Delete line</button>
                 <button onclick="onSwitchLines()" class="switch-btn">Switch Lines</button>
                 <button class="share-btn" type="file" onclick="uploadImg()">Share</button>
                     <p class="user-msg"></p>

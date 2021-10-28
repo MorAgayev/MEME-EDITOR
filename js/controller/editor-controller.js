@@ -1,27 +1,35 @@
 'use strict'
-
 function updateCanvas() {
     const width = gImage.width;
     const height = gImage.height;
-
     gElCanvas.width = width;
     gElCanvas.height = height;
     gCtx.drawImage(gImage, 0,0); 
     editTxtStyle()
 
-    var lineIdx = gMeme.selectedLineIdx;
-    var currLine = gMeme.lines[lineIdx];
-    if(lineIdx === 0) {
-        gCtx.textBaseline = 'top';
-        drawText(gTopTxt, width/2, currLine.location.y, `${currLine.size}px impact`, currLine.color);
-        gCtx.textBaseline = 'bottom';
-        drawText(gBottomTxt, width/2, height - gMeme.lines[lineIdx+1].location.y, `${gMeme.lines[lineIdx+1].size}px impact`, gMeme.lines[lineIdx+1].color);
-    } else {
-        gCtx.textBaseline = 'top';
-        drawText(gTopTxt, width/2, gMeme.lines[lineIdx-1].location.y, `${gMeme.lines[lineIdx-1].size}px impact`, gMeme.lines[lineIdx-1].color);
-        gCtx.textBaseline = 'bottom';
-        drawText(gBottomTxt, width/2, height - currLine.location.y, `${currLine.size}px impact`, currLine.color);
-    }
+    gMeme.lines.forEach(line => {
+        drawText(line.txt, width/2, line.location.y, `${line.size}px ${line.fontFamily}`, line.color, line.align);
+    })
+}
+
+function onDeleteLine() { //////////
+    onDeleteLine()
+    updateCanvas()
+}
+
+function onAddLine() {
+    addLine();
+    updateCanvas();
+}
+
+function onChangeAlign(choise) {
+    setAlign(choise);
+    updateCanvas();
+}
+
+function onChangeFont(fontType) {
+    setFontFamily(fontType);
+    updateCanvas();
 }
 
 function onChangeTxtColor(color) {
@@ -34,11 +42,6 @@ function onChangeLocation(value) {
     updateCanvas()
 }
 
-// function onChangeLocation(diraction) {
-//     setLocationY(diraction);
-//     updateCanvas()
-// }
-
 function onSwitchLines() {
     setSelectedLine();
     document.querySelector('.txt-input').value = gMeme.lines[gMeme.selectedLineIdx].txt;
@@ -50,17 +53,14 @@ function onChangeFontSize(choice) {
 }
 
 function onChangeTxt(txt) { 
-    if(gMeme.selectedLineIdx===0) {
-        gTopTxt= setTxt(txt, 0)
-    } else {
-        gBottomTxt= setTxt(txt, 1)
-    }
+    setTxt(txt)
     updateCanvas()
 }
 
-function drawText(text,x,y, fontSize, color) {
+function drawText(text,x,y, fontSize, color, align) {
     gCtx.font = fontSize;
     gCtx.fillStyle = color;
+    gCtx.textAlign = align;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }
@@ -69,8 +69,8 @@ function editTxtStyle() {
     var currLine = gMeme.lines[gMeme.selectedLineIdx];
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = currLine.borderColor;
-    gCtx.textAlign = currLine.align;
     gCtx.lineJoin = 'round';
+    gCtx.imageSmoothingQuality= 'high'
 }
 
 function drawImg(src) {
