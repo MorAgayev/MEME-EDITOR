@@ -32,6 +32,3 @@ function openNav() {
     var elNav = document.querySelector('.nav-container');
     elNav.hidden = false;
 }
-
-
-
