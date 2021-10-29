@@ -1,4 +1,5 @@
 'use strict'
+var isDraggable = false;
 function updateCanvas() {
     const width = gImage.width;
     const height = gImage.height;
@@ -10,19 +11,54 @@ function updateCanvas() {
         if(line.id === gMeme.selectedLineIdx) {
             var lineHeight = gCtx.measureText(line).actualBoundingBoxAscent;
             var lineWidth = gCtx.measureText(line.txt).width;
-            setRect(width/2-lineWidth,line.location.y-lineHeight-5, lineWidth*2, lineHeight+10)
+            setRect(width/2-lineWidth,line.location.y-lineHeight-5, lineWidth*2, lineHeight+10);
+            _MouseEvents(line,width/2-lineWidth,lineWidth*2, line.location.y-lineHeight-5, lineHeight+10)
         }
+        // e.layerY
+        // e.layerx
     })
-    saveToStorage('gMeme', gMeme);
+    // saveToStorage('gMeme', gMeme);
 }
 
+function _MouseEvents(line,currentX,endX, currentY, endY) {
+    gElCanvas.onmousedown = function(e) {
+      var mouseX = e.layerX;
+      var mouseY = e.layerY;
+      console.log('on');
+
+      //start from here
+      if (mouseX >= (currentX) &&
+          mouseX <= (endX) &&
+          mouseY >= (currentY) &&
+          mouseY <= (endY)) {
+        isDraggable = true;
+        //currentX = mouseX;
+        //currentY = mouseY;
+      }
+    };
+    gElCanvas.onmousemove = function(e) {
+  
+      if (isDraggable) {
+        currentX = e.layerX;
+        currentY = e.layerY;
+        drawText(line.txt, currentX, currentY, `${line.size}px ${line.fontFamily}`, line.color, line.align)
+      }
+    };
+    gElCanvas.onmouseup = function(e) {
+      isDraggable = false;
+    };
+    // gElCanvas.onmouseout = function(e) {
+    //   isDraggable = false;
+    // };
+  }
+
 function onSaveMeme() {
-    gMemes.push(gMeme)
-    saveToStorage('gMemes', gMemes)
-    createMeme()
-    openGallery()
+    gMemes.push(gMeme);
+    // saveToStorage('gMemes', gMemes);
     var imageUrl = gElCanvas.toDataURL('image/jpeg');
     setMemesImgs(gMeme, imageUrl);
+    createMeme();
+    openGallery();
     renderMemes();
 }
 
