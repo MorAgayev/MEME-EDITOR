@@ -1,6 +1,7 @@
 'use strict'
 var gElCanvas;
 var gCtx;
+var gId = 0
 // var gTopTxt = '';
 // var gBottomTxt ='';
 var height = ''
@@ -9,6 +10,7 @@ var gMeme = {
     selectedImgId:1,
     lines: [
         {
+            id: gId,
             txt:'',
             size:40,
             location:{x:20, y:50},
@@ -16,9 +18,10 @@ var gMeme = {
             color: 'white',
             borderColor:'black',
             fontFamily:'IMPACT',
-            baseLine:'top'
+            baseLine:'top', 
         },
         {
+            id: ++gId,
             txt:'',
             location:{x:20, y: (500 - 50)},
             size:40,
@@ -26,10 +29,11 @@ var gMeme = {
             color: 'white',
             borderColor:'black',
             fontFamily:'IMPACT',
-            baseLine:'bottom'
+            baseLine:'bottom',
         }
     ]
 }
+
 
 function onDeleteLine() {
     var lineIdx = gMeme.selectedLineIdx;
@@ -43,6 +47,7 @@ function setAlign(choise) {
 
 function addLine() {
     var newLine = {
+            id: gMeme.lines.length,
             txt:'new line',
             size:40,
             location:{x:20, y:200},
@@ -50,7 +55,7 @@ function addLine() {
             color: 'white',
             borderColor:'black',
             fontFamily:'IMPACT',
-            baseLine:'middle'
+            baseLine:'middle',
         }
     gMeme.lines.push(newLine);
     gMeme.selectedLineIdx++
