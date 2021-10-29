@@ -1,41 +1,42 @@
 'use strict'
 var gElCanvas;
 var gCtx;
-var gId = 0
-// var gTopTxt = '';
-// var gBottomTxt ='';
-var height = ''
-var gMeme = {
-    selectedLineIdx:0,
-    selectedImgId:1,
-    lines: [
-        {
-            id: gId,
-            txt:'',
-            size:40,
-            location:{x:20, y:50},
-            align:'center',
-            color: 'white',
-            borderColor:'black',
-            fontFamily:'IMPACT',
-            baseLine:'top', 
-        },
-        {
-            id: ++gId,
-            txt:'',
-            location:{x:20, y: (500 - 50)},
-            size:40,
-            align:'center',
-            color: 'white',
-            borderColor:'black',
-            fontFamily:'IMPACT',
-            baseLine:'bottom',
-        }
-    ]
+var gId = 0;
+var gMeme;
+var gMemes= [];
+
+function createMeme() {
+    gMeme = {
+        selectedLineIdx:0,
+        selectedImgId:1,
+        lines: [
+            {
+                id: gId,
+                txt:'',
+                size:40,
+                location:{x:20, y:50},
+                align:'center',
+                color: 'white',
+                borderColor:'black',
+                fontFamily:'IMPACT',
+                baseLine:'top', 
+            },
+            {
+                id: ++gId,
+                txt:'',
+                location:{x:20, y: (500 - 50)},
+                size:40,
+                align:'center',
+                color: 'white',
+                borderColor:'black',
+                fontFamily:'IMPACT',
+                baseLine:'bottom',
+            }
+        ]
+    }
 }
 
-
-function onDeleteLine() {
+function deleteLine() {
     var lineIdx = gMeme.selectedLineIdx;
     console.log(lineIdx,'lineIdx');
     gMeme.lines.splice(lineIdx,1);

@@ -5,7 +5,6 @@ function updateCanvas() {
     gElCanvas.width = width;
     gElCanvas.height = height;
     gCtx.drawImage(gImage, 0,0); 
-    
     gMeme.lines.forEach(line => {
         drawText(line.txt, width/2, line.location.y, `${line.size}px ${line.fontFamily}`, line.color, line.align);
         if(line.id === gMeme.selectedLineIdx) {
@@ -14,6 +13,17 @@ function updateCanvas() {
             setRect(width/2-lineWidth,line.location.y-lineHeight-5, lineWidth*2, lineHeight+10)
         }
     })
+    saveToStorage('gMeme', gMeme);
+}
+
+function onSaveMeme() {
+    gMemes.push(gMeme)
+    saveToStorage('gMemes', gMemes)
+    createMeme()
+    openGallery()
+    var imageUrl = gElCanvas.toDataURL('image/jpeg');
+    setMemesImgs(gMeme, imageUrl);
+    renderMemes();
 }
 
 function downloadMeme(elLink) {
@@ -28,8 +38,8 @@ function setRect(x,y,xEnd, yEnd) {
     gCtx.stroke()
 }
 
-function onDeleteLine() { //////////
-    onDeleteLine()
+function onDeleteLine() {
+    deleteLine()
     updateCanvas()
 }
 
@@ -61,6 +71,7 @@ function onChangeLocation(value) {
 function onSwitchLines() {
     setSelectedLine();
     document.querySelector('.txt-input').value = gMeme.lines[gMeme.selectedLineIdx].txt;
+    updateCanvas()
 }
 
 function onChangeFontSize(choice) {
@@ -107,4 +118,5 @@ function onSelectImg(id) {
     elCanvasPage.hidden = false;
     var elGallery = document.querySelector('.gallery');
     elGallery.hidden = true;
+    document.querySelector('.memes').hidden = true;
 }

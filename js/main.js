@@ -7,11 +7,15 @@ function onInit() {
     console.log('gCtx',gCtx);
     var elGalleryBtn = document.querySelector('.gallery-btn');
     elGalleryBtn.addEventListener('click', openGallery);
+    var elMemesBtn = document.querySelector('.memes-btn');
+    elMemesBtn.addEventListener('click', showMemesPage);
     // mouseEvent()
     renderGallery();
+    createMeme()
 }
 
 function openGallery() {
+    document.querySelector('.memes').hidden = true;
     var elCanvasPage = document.querySelector('.canvas');
     elCanvasPage.hidden = true;
     var elGallery = document.querySelector('.gallery');

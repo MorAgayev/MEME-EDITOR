@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/memes.css">
     <link rel="stylesheet" href="css/editor.css">
     <title>MEME2</title>
 </head>
@@ -19,7 +20,7 @@
             <ul class="main-nav">
                 <button class="close-modal-btn" onclick="closeNav()">x</button>
                 <li><a class="gallery-btn" href="#">Gallery</a></li>
-                <li><a href="#">Memes</a></li>
+                <li><a href="#" class="memes-btn">Memes</a></li>
                 <li><a href="#">About</a></li>
             </ul>
         </nav>
@@ -55,6 +56,7 @@
                 <button onclick="onSwitchLines()" class="switch-btn">Switch Lines</button>
                 <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
                 <button class="share-btn" type="file" onclick="uploadMeme()">Share</button>
+                <button class="save-btn" type="file" onclick="onSaveMeme()">Save</button>
                     <p class="user-msg"></p>
                     <div class="share-container"></div>
             </div>
@@ -67,6 +69,9 @@
             </div> -->
         </div>
     </div>
+    <div class="memes" hidden>
+        <div class="memes-container"></div>
+    </div>
     <div class="gallery">
         <div class="gallery-container"></div>
     </div>
@@ -77,8 +82,10 @@
     <script src="js/main.js"></script>
     <script src="js/controller/gallery-controller.js"></script>
     <script src="js/controller/editor-controller.js"></script>
+    <script src="js/controller/memes-controller.js"></script>
     <script src="js/service/editor-service.js"></script>
     <script src="js/service/gallery-service.js"></script>
+    <script src="js/service/storage-service.js"></script>
     <script src="js/uploud.js"></script>
 </body>
 
