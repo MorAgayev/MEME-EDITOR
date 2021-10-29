@@ -1,6 +1,6 @@
 'use strict'
 
-function uploadImg() {
+function uploadMeme() {
     const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {

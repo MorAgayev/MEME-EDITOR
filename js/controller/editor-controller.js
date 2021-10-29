@@ -5,11 +5,27 @@ function updateCanvas() {
     gElCanvas.width = width;
     gElCanvas.height = height;
     gCtx.drawImage(gImage, 0,0); 
-    editTxtStyle()
-
+    
     gMeme.lines.forEach(line => {
         drawText(line.txt, width/2, line.location.y, `${line.size}px ${line.fontFamily}`, line.color, line.align);
+        if(line.id === gMeme.selectedLineIdx) {
+            var lineHeight = gCtx.measureText(line).actualBoundingBoxAscent;
+            var lineWidth = gCtx.measureText(line.txt).width;
+            setRect(width/2-lineWidth,line.location.y-lineHeight-5, lineWidth*2, lineHeight+10)
+        }
     })
+}
+
+function downloadMeme(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
+
+function setRect(x,y,xEnd, yEnd) {
+    gCtx.strokeStyle = 'black'
+    gCtx.beginPath()
+    gCtx.rect(x,y,xEnd, yEnd);
+    gCtx.stroke()
 }
 
 function onDeleteLine() { //////////
