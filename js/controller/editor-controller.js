@@ -12,29 +12,34 @@ function updateCanvas() {
             var lineHeight = gCtx.measureText(line).actualBoundingBoxAscent;
             var lineWidth = gCtx.measureText(line.txt).width;
             setRect(width/2-lineWidth,line.location.y-lineHeight-5, lineWidth*2, lineHeight+10);
-            _MouseEvents(line,width/2-lineWidth,lineWidth*2, line.location.y-lineHeight-5, lineHeight+10)
+            // _MouseEvents(line,width/2-lineWidth,lineWidth*2, line.location.y-lineHeight-5, lineHeight+10)
         }
-        // e.layerY
-        // e.layerx
     })
-    // saveToStorage('gMeme', gMeme);
 }
 
 function _MouseEvents(line,currentX,endX, currentY, endY) {
     gElCanvas.onmousedown = function(e) {
       var mouseX = e.layerX;
       var mouseY = e.layerY;
-      console.log('on');
 
       //start from here
-      if (mouseX >= (currentX) &&
-          mouseX <= (endX) &&
-          mouseY >= (currentY) &&
-          mouseY <= (endY)) {
+      console.log('mouseX', mouseX);
+      console.log('endX', endX);
+      if (mouseX >= currentX &&  endX >= mouseX) {
+              console.log('is on');
         isDraggable = true;
         //currentX = mouseX;
         //currentY = mouseY;
       }
+    //   if (mouseX >= currentX &&
+    //       mouseX <= endX &&
+    //       mouseY >= currentY &&
+    //       mouseY <= endY) {
+    //           console.log('is on');
+    //     isDraggable = true;
+    //     //currentX = mouseX;
+    //     //currentY = mouseY;
+    //   }
     };
     gElCanvas.onmousemove = function(e) {
   
@@ -54,7 +59,6 @@ function _MouseEvents(line,currentX,endX, currentY, endY) {
 
 function onSaveMeme() {
     gMemes.push(gMeme);
-    // saveToStorage('gMemes', gMemes);
     var imageUrl = gElCanvas.toDataURL('image/jpeg');
     setMemesImgs(gMeme, imageUrl);
     createMeme();
@@ -76,11 +80,13 @@ function setRect(x,y,xEnd, yEnd) {
 
 function onDeleteLine() {
     deleteLine()
+    onSwitchLines()
     updateCanvas()
 }
 
 function onAddLine() {
     addLine();
+    onSwitchLines()
     updateCanvas();
 }
 

@@ -38,10 +38,23 @@ button {
     cursor: pointer;
 }
 
+input {
+    border-radius: 10px;
+}
+/* LAYOUT */
+
+.main-layout {
+    max-width: 980px;
+    margin: auto;
+}
+
 /* top container */
 .top-container {
     background-color: orange;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+}
+
+.top-nav {
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -50,8 +63,7 @@ button {
 
 .logo {
     font-family: Teko-Bold;
-    padding-left: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
 }
 

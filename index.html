@@ -14,49 +14,55 @@
 
 <body onload="onInit()">
     <div class="top-container">
-        <div class="logo">MEME</div>
-        <button class="open-modal-btn" onclick="openNav()">=</button>
-        <nav class="nav-container">
-            <ul class="main-nav">
-                <button class="close-modal-btn" onclick="closeNav()">x</button>
-                <li><a class="gallery-btn" href="#">Gallery</a></li>
-                <li><a href="#" class="memes-btn">Memes</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
+        <div class="top-nav main-layout">
+            <div class="logo">MEME</div>
+            <button class="open-modal-btn" onclick="openNav()">=</button>
+            <nav class="nav-container">
+                <ul class="main-nav">
+                    <button class="close-modal-btn" onclick="closeNav()">x</button>
+                    <li><a class="gallery-btn" href="#">Gallery</a></li>
+                    <li><a href="#" class="memes-btn">Memes</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <div class="canvas" hidden>
-        <div class="canvas-page">
-            <div class="canvas-container">
+        <div class="canvas-page main-layout">
+            <div class="canvas-container ">
                 <canvas class="my-canvas"></canvas>
             </div>
             <div class="control-container">
-                <h2>Edit Text Line</h2>
-                <input class="txt-input" type="text" placeholder="Enter some text" oninput="onChangeTxt(this.value)">
-                <div class="font-btns">
-                    <button onclick="onChangeFontSize('increase')"
-                        style="background-image: url(ICONS/a-plus.png);"></button>
-                    <button onclick="onChangeFontSize('decrease')"
-                        style="background-image: url(ICONS/a-minus.png);"></button>
+                <h2>Edit Meme</h2>
+                <div class="txt-switch">
+                    <input class="txt-input" type="text" placeholder="Enter some text" oninput="onChangeTxt(this.value)">
+                    <img src="/ICONS/change-btn.png" onclick="onSwitchLines()">
                 </div>
-                <input type="color" name="text-color" oninput="onChangeTxtColor(this.value)">
+                <div class="font-editors">
+                    <img src="/ICONS/a-plus.png" onclick="onChangeFontSize('increase')">
+                    <img src="/ICONS/a-minus.png"  onclick="onChangeFontSize('decrease')">
+                        <select onchange="onChangeFont(this.value)">
+                            <option value="IMPACT">IMPACT</option>
+                            <option value="MONOSPACE">MONOSPACE</option>
+                            <option value="VERDANA">VERDANA</option>
+                        </select>
+                        <input type="color" name="text-color" class="text-color" oninput="onChangeTxtColor(this.value)">
+                </div>
                 <input type="range" class="location-range" oninput="onChangeLocation(this.value)" min="50" max="400">
-                <select onchange="onChangeFont(this.value)">
-                    <option value="IMPACT">IMPACT</option>
-                    <option value="MONOSPACE">MONOSPACE</option>
-                    <option value="VERDANA">VERDANA</option>
-                </select>
                 <div class="align-btns">
-                    <button onclick="onChangeAlign('center')">C</button>
-                    <button onclick="onChangeAlign('left')">L</button>
-                    <button onclick="onChangeAlign('right')">R</button>
+                    <img src="/ICONS/align-left.png" onclick="onChangeAlign('left')">
+                    <img src="/ICONS/align-center.png" onclick="onChangeAlign('center')">
+                    <img src="/ICONS/align-right.png" onclick="onChangeAlign('right')">
+                    <div class="delete-add">
+                        <img src="/ICONS/add-line.png" onclick="onAddLine()">
+                        <img src="/ICONS/delete-line.png" onclick="onDeleteLine()">
+                    </div>
                 </div>
-                <button onclick="onAddLine()">Add line</button>
-                <button onclick="onDeleteLine()">Delete line</button>
-                <button onclick="onSwitchLines()" class="switch-btn">Switch Lines</button>
-                <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
-                <button class="share-btn" type="file" onclick="uploadMeme()">Share</button>
-                <button class="save-btn" type="file" onclick="onSaveMeme()">Save</button>
+                <div class="downloud-share-save">
+                    <a href="#" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
+                    <a href="#" onclick="uploadMeme()">Share</a>
+                    <a href="#"  onclick="onSaveMeme()">Save</a>
+                </div>
                     <p class="user-msg"></p>
                     <div class="share-container"></div>
             </div>
@@ -70,12 +76,12 @@
         </div>
     </div>
     <div class="memes" hidden>
-        <div class="memes-container"></div>
+        <div class="memes-container main-layout"></div>
     </div>
     <div class="gallery">
         <div class="gallery-container"></div>
     </div>
-    <footer>
+    <footer class="main-layout">
         <div class="logo">MEME</div>
     </footer>
 

@@ -59,7 +59,6 @@ function addLine() {
             baseLine:'middle',
         }
     gMeme.lines.push(newLine);
-    gMeme.selectedLineIdx++
 }
 
 function setFontFamily(fontType) {
