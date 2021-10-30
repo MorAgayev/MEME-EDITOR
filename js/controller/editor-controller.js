@@ -16,7 +16,6 @@ function updateCanvas() {
         }
     })
 }
-
 function _MouseEvents(line,currentX,endX, currentY, endY) {
     gElCanvas.onmousedown = function(e) {
       var mouseX = e.layerX;
@@ -56,6 +55,17 @@ function _MouseEvents(line,currentX,endX, currentY, endY) {
     //   isDraggable = false;
     // };
   }
+
+// function loadImage(img) {
+//     var url = URL.createObjectURL(img);
+//     const image = new Image(500, 500);
+//       image.src = url;
+//       image.onload = () => {
+//         gCtx.imageSmoothingQuality = 'high';
+//         gImage = image;
+//         updateCanvas()
+//       };
+// }
 
 function onSaveMeme() {
     gMemes.push(gMeme);
@@ -143,7 +153,6 @@ function editTxtStyle() {
 }
 
 function drawImg(src) {
-    console.log('src',src);
     var img = new Image();
     img.src = src;
     img.onload = () => {
