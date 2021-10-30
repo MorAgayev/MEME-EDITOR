@@ -3,9 +3,6 @@ var isDraggable = false;
 function updateCanvas() {
     const width = gImage.width;
     const height = gImage.height;
-    // var elCanvasContainer = document.querySelector('.canvas-container');
-    // console.log('canvas-container', elCanvasContainer);
-    // // if()
     gElCanvas.width = width;
     gElCanvas.height = height;
     gCtx.drawImage(gImage, 0,0); 
