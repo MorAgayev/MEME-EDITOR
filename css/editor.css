@@ -186,13 +186,10 @@
 }
 
 @media (min-width: 740px) {
-    .canvas-page {
+    /* .canvas-page {
         max-width: 700px;
         max-height: none;
-        /* max-height: none; */
-        /* grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr; */
-    }
+    } */
 }
 
 @media (min-width: 980px) {

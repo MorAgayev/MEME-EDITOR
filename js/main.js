@@ -14,6 +14,10 @@ function onInit() {
     createMeme()
 }
 
+function menuToggle() {
+    document.body.classList.toggle('menu-open');
+}
+
 function openGallery() {
     document.querySelector('.memes').hidden = true;
     var elCanvasPage = document.querySelector('.canvas');

@@ -16,15 +16,21 @@
     <div class="top-container">
         <div class="top-nav main-layout">
             <div class="logo">MEME</div>
-            <button class="open-modal-btn" onclick="openNav()">=</button>
-            <nav class="nav-container">
+            <button class="menu-btn" onclick="menuToggle()">☰</button>
+            <ul class="main-nav flex">
+                <button class="menu-btn" onclick="menuToggle()">X</button>
+                <li><a class="gallery-btn" href="#">Gallery</a></li>
+                <li><a href="#" class="memes-btn">Memes</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <!-- <nav class="nav-container">
                 <ul class="main-nav">
                     <button class="close-modal-btn" onclick="closeNav()">x</button>
                     <li><a class="gallery-btn" href="#">Gallery</a></li>
                     <li><a href="#" class="memes-btn">Memes</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
-            </nav>
+            </nav> -->
         </div>
     </div>
     <div class="canvas" hidden>
@@ -35,18 +41,19 @@
             <div class="control-container">
                 <h2>Edit Meme</h2>
                 <div class="txt-switch">
-                    <input class="txt-input" type="text" placeholder="Enter some text" oninput="onChangeTxt(this.value)">
+                    <input class="txt-input" type="text" placeholder="Enter some text"
+                        oninput="onChangeTxt(this.value)">
                     <img src="./ICONS/change-btn.png" onclick="onSwitchLines()">
                 </div>
                 <div class="font-editors">
                     <img src="./ICONS/a-plus.png" onclick="onChangeFontSize('increase')">
-                    <img src="./ICONS/a-minus.png"  onclick="onChangeFontSize('decrease')">
-                        <select onchange="onChangeFont(this.value)">
-                            <option value="IMPACT">IMPACT</option>
-                            <option value="MONOSPACE">MONOSPACE</option>
-                            <option value="VERDANA">VERDANA</option>
-                        </select>
-                        <input type="color" name="text-color" class="text-color" oninput="onChangeTxtColor(this.value)">
+                    <img src="./ICONS/a-minus.png" onclick="onChangeFontSize('decrease')">
+                    <select onchange="onChangeFont(this.value)">
+                        <option value="IMPACT">IMPACT</option>
+                        <option value="MONOSPACE">MONOSPACE</option>
+                        <option value="VERDANA">VERDANA</option>
+                    </select>
+                    <input type="color" name="text-color" class="text-color" oninput="onChangeTxtColor(this.value)">
                 </div>
                 <input type="range" class="location-range" oninput="onChangeLocation(this.value)" min="50" max="400">
                 <div class="align-btns">
@@ -61,10 +68,10 @@
                 <div class="downloud-share-save">
                     <a href="#" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
                     <a href="#" onclick="uploadMeme()">Share</a>
-                    <a href="#"  onclick="onSaveMeme()">Save</a>
+                    <a href="#" onclick="onSaveMeme()">Save</a>
                 </div>
-                    <p class="user-msg"></p>
-                    <div class="share-container"></div>
+                <p class="user-msg"></p>
+                <div class="share-container"></div>
             </div>
             <!-- <div class="share-container" hidden>
                 <div class="share-modal">
@@ -94,4 +101,5 @@
     <script src="js/service/storage-service.js"></script>
     <script src="js/uploud.js"></script>
 </body>
+
 </html>
